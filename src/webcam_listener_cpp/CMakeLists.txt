@@ -21,8 +21,18 @@ ament_target_dependencies(webcam_listener
   cv_bridge
   OpenCV
 )
+add_executable(image_evaluator src/image_qual_evaluation.cpp)
+ament_target_dependencies(image_evaluator
+  rclcpp
+  sensor_msgs
+  image_transport
+  cv_bridge
+  OpenCV
+)
+
 install(TARGETS
   webcam_listener
+  image_evaluator
   DESTINATION lib/${PROJECT_NAME}
 )
 
